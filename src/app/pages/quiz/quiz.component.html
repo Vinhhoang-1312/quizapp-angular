@@ -33,13 +33,6 @@
         <button mat-raised-button color="warn" (click)="quitQuiz()">
           Quit
         </button>
-        <button
-          mat-raised-button
-          class="custom-green-button"
-          (click)="nextQuestion()"
-        >
-          Next Question
-        </button>
 
         <button mat-raised-button color="primary" (click)="nextQuestion()">
           {{ currQues === questions.length - 1 ? "Submit" : "Next Question" }}
