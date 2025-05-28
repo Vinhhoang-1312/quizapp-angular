@@ -1,0 +1,21 @@
+<div class="content">
+  <div class="settings">
+    <div class="settings-box">
+      <div class="banner-container">
+        <img src="/hello.png" alt="quiz app" class="banner" />
+      </div>
+      <div class="settings__select">
+        <app-error-message *ngIf="error"
+          >Please fill all the fields</app-error-message
+        >
+        <input
+          [(ngModel)]="name"
+          type="text"
+          placeholder="Enter Your Name"
+          class="input-name"
+        />
+        <button (click)="startQuiz()" class="start-btn">Start Quiz</button>
+      </div>
+    </div>
+  </div>
+</div>

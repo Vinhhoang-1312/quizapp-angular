@@ -1,0 +1,29 @@
+<div class="result-container">
+  <div class="result-card">
+    <div class="result-info">
+      <h2>
+        Final Score: <span class="score">{{ score }}</span>
+      </h2>
+      <p [ngClass]="{ happy: isPass, sad: !isPass }" class="message">
+        {{ isPass ? "Great job" : "Better luck next time" }},
+        <strong>{{ name }}</strong
+        >! Bạn đã trả lời đúng <strong>{{ score }}/{{ total }}</strong> câu
+        trong <strong>{{ duration }}</strong> giây.
+      </p>
+    </div>
+    <div class="result-image">
+      <img
+        [src]="isPass ? '/happy.png' : '/sad.png'"
+        [alt]="isPass ? 'happy' : 'sad'"
+      />
+    </div>
+    <div class="result-actions">
+      <button mat-raised-button color="warn" (click)="goHome()">
+        Go to Homepage
+      </button>
+      <button mat-raised-button color="primary" (click)="reviewAnswers()">
+        Review Answers
+      </button>
+    </div>
+  </div>
+</div>

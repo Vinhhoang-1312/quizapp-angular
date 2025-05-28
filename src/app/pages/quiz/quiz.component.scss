@@ -1,0 +1,144 @@
+.quiz {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 16px;
+  font-family: "Poppins", sans-serif;
+}
+
+.quiz-box {
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.12);
+  padding: 32px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #e0e0e0;
+  box-sizing: border-box;
+  
+}
+.custom-green-button.mat-raised-button {
+  background-color: #4caf50 !important;
+  color: white !important;
+}
+.custom-green-button.mat-raised-button:hover {
+  background-color: #388e3c; /* xanh đậm hơn khi hover */
+}
+.subtitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #263e69;
+  background: #f1f5fa;
+  border: none;
+  box-shadow: 0 2px 12px rgba(79, 93, 117, 0.08);
+  border-radius: 12px;
+  padding: 10px 28px;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.quizInfo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  margin: 16px 0 24px 0;
+  gap: 16px;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  
+  gap: 16px;
+  width: 100%;
+}
+.singleOption {
+  background-color: #f1f5fa;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+
+  display: flex;           
+  align-items: center;
+  justify-content: center;
+
+  min-height: 60px;        
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.singleOption:hover {
+  background-color: #dbe8f9;
+}
+
+.select {
+  background-color: #6fcf97 !important;
+  color: white;
+}
+
+.wrong {
+  background-color: #eb5757 !important;
+  color: white;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.quit-button {
+  background: #eb5757;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .quiz {
+    flex-direction: column;
+    align-items: center;
+    min-height: unset;
+  }
+  .options {
+    grid-template-columns: 1fr; 
+  }
+  .quiz-box {
+    padding: 20px 8px;
+    margin: 30px 0 10px 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    padding: 4px 8px;
+  }
+
+  .quizInfo {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .question {
+
+    font-size: 13px; 
+  }
+  .quizInfo span {
+    font-size: 14px;
+  }
+}

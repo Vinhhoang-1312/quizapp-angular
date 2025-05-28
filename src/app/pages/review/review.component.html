@@ -1,0 +1,39 @@
+<div *ngIf="userAnswers.length; else noData" class="review-root">
+  <div class="review-container">
+    <h2>Review Your Answers</h2>
+    <div
+      *ngFor="let ans of userAnswers; let idx = index"
+      class="review-question"
+    >
+      <div class="review-q">
+        <strong>Q{{ idx + 1 }}:</strong> {{ he.decode(ans.question) }}
+      </div>
+      <div class="review-options">
+        <div
+          *ngFor="let opt of ans.options"
+          class="review-option"
+          [ngClass]="{
+            correct: opt === ans.correct,
+            wrong: opt === ans.selected && opt !== ans.correct
+          }"
+        >
+          {{ he.decode(opt) }}
+          <span *ngIf="opt === ans.correct" class="badge">Correct</span>
+          <span
+            *ngIf="opt === ans.selected && opt !== ans.correct"
+            class="badge wrong"
+            >Your Answer</span
+          >
+        </div>
+      </div>
+    </div>
+    <button (click)="goHome()" class="review-btn">Go Home</button>
+  </div>
+</div>
+
+<ng-template #noData>
+  <div style="padding: 32px; text-align: center">
+    <h2>No review data found.</h2>
+    <button (click)="goHome()" class="review-btn">Go Home</button>
+  </div>
+</ng-template>

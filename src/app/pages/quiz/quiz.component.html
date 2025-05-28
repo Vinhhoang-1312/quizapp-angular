@@ -1,0 +1,54 @@
+<div class="quiz">
+  <div class="quiz-box" *ngIf="questions.length; else loading">
+    <div class="subtitle">Welcome, {{ name }}</div>
+
+    <div class="quizInfo">
+      <span>Score: {{ score }}</span>
+      <span>Question {{ currQues + 1 }} / {{ questions.length }}</span>
+    </div>
+
+    <div class="question">
+      <h2>{{ he.decode(questions[currQues].question) }}</h2>
+      <!-- 
+      <img
+        *ngIf="questions[currQues]?.image"
+        [src]="questions[currQues].image"
+        alt="question image"
+        class="question-image"
+      /> -->
+
+      <div class="options">
+        <button
+          *ngFor="let option of options"
+          class="singleOption"
+          [ngClass]="optionClass(option)"
+          (click)="selectOption(option)"
+          [disabled]="selected !== undefined"
+        >
+          {{ he.decode(option) }}
+        </button>
+      </div>
+
+      <div class="controls">
+        <button mat-raised-button color="warn" (click)="quitQuiz()">
+          Quit
+        </button>
+        <button
+          mat-raised-button
+          class="custom-green-button"
+          (click)="nextQuestion()"
+        >
+          Next Question
+        </button>
+
+        <button mat-raised-button color="primary" (click)="nextQuestion()">
+          {{ currQues === questions.length - 1 ? "Submit" : "Next Question" }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <p>Loading questions...</p>
+  </ng-template>
+</div>
